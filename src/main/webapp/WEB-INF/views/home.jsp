@@ -11,22 +11,7 @@
 </head>
     <body>
  <div class="container">
-   <nav class="navbar navbar-default">
-   <div class="container-fluid">
-     <div class="navbar-header">
-        <a class="navbar-brand" href="index.jsp">MySite.com</a>
-     </div>
-     <ul class="nav navbar-nav navbar-right" >
-        <li class="active"><a href="home">Home</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Feedback</a></li>
-        <li><a href="pro?data=all">View All</a></li>
-        <li><a href="login">Login</a></li>
-        <li><a href="register">Register</a>
-     </ul>
-     </div>
-   </nav>
-   
+   <jsp:include page="Header.jsp"/>
    <div id="mycarousel" class="carousel slide" data-ride="carousel" >
    <ol class="carousel-indicators">
      <li data-targer="#mycarousel" data-slide-to="0" class="active"></li>
