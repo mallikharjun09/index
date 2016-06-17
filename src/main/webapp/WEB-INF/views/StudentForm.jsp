@@ -13,10 +13,7 @@
   <script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
 
 </head>
-<body>
-   <div class="container">
-    <jsp:include page="Header.jsp"></jsp:include>
-    <form:form commandName="user" cssClass="form">
+    <form:form commandName="user" cssClass="formHorizontal">
        <div class="form-group">
           <label for="id" class="col-sm-2 control-label">ID:</label>
           <div class="col-sm-10">
@@ -30,30 +27,6 @@
              <form:input path="name" cssClass="form-control"/>
           </div>
        </div>
-        <div class="form-group" style="margin-top:2%">
-          <label for="name" class="col-sm-2 control-label">Name:</label>
-          <div class="col-sm-10">
-             <form:input path="description" cssClass="form-control"/>
-          </div>
-       </div>
-        <div class="form-group" style="margin-top:2%">
-          <label for="name" class="col-sm-2 control-label">Name:</label>
-          <div class="col-sm-10">
-             <form:input path="quantity" cssClass="form-control"/>
-          </div>
-       </div>
-        <div class="form-group" style="margin-top:2%">
-          <label for="name" class="col-sm-2 control-label">Name:</label>
-          <div class="col-sm-10">
-             <form:input path="Cost" cssClass="form-control"/>
-          </div>
-       </div>
-        <div class="form-group" style="margin-top:2%">
-          <label for="name" class="col-sm-2 control-label">Name:</label>
-          <div class="col-sm-10">
-             <form:input path="name" cssClass="form-control"/>
-          </div>
-       </div>
        <div class="form-group" align="right">
           <div class="col-sm-2">
               <input type="submit" value="Register" class="btn btn-lg btn-primary" />
@@ -61,6 +34,4 @@
           
        </div>
     </form:form>
-   </div>
-    </body>
 </html>

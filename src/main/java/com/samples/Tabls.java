@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Chair")
-public class Chair {
+@Table(name="Tabls")
+public class Tabls {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -60,7 +60,7 @@ public class Chair {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-	public Chair(String name,String description,int quantity,double cost){
+	public Tabls(String name,String description,int quantity,double cost){
 		this.name=name;
 		this.description=description;
 		this.quantity=quantity;

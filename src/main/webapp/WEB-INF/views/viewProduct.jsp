@@ -16,11 +16,12 @@
 <div class="container">
   <jsp:include page="Header.jsp"/>
    <table class="table table-bordered">
-   <tr><td rowspan="5"><img src="<c:url value="resources/images/img5.jpg"/>"/></td></tr>
-  <tr><td>Company : <%=request.getParameter("com") %></td></tr>
-  <tr><td>Colour : <%=request.getParameter("col") %></td></tr>
+   <tr><td rowspan="6"><img src="<c:url value="resources/images/img5.jpg"/>"/></td></tr>
+   <tr><td>Id:<%=request.getParameter("id") %></td></tr>
+  <tr><td>Name : <%=request.getParameter("com") %></td></tr>
+  <tr><td>Description : <%=request.getParameter("col") %></td></tr>
   <tr><td>Cost   : <%=request.getParameter("cost") %></td></tr>
-  
+ <tr><td>Quantity: <%=request.getParameter("qty") %></td></tr>
   </table>
   <p align="right"><a href=""class="btn btn-info" role="button">Add to Cart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="btn btn-info" role="button">Back</a></p>
   </div>

@@ -1,4 +1,4 @@
-<%@page import="com.samples.Furniture"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*" %>
@@ -28,18 +28,22 @@
        <table class="table table-bordered">
           <thead>
             <tr>
-                <th>Company</th>
-                <th>Colour</th>
+                <th>id</th>
+                <th>Company Name</th>
+                <th>Description</th>
                 <th>Cost</th>
+                <th>Quantity</th>
                 <th>Options</th>
             </tr>
           </thead>
           <tbody>
              <tr ng-repeat="x in data">
-                <td>{{x.company}}</td>
-                <td>{{x.colour}}</td>
+                <td>{{x.id}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.description}}</td>
                 <td>{{x.cost}}</td>
-                <td><a href="view?&com={{x.company}}&col={{x.colour}}&cost={{x.cost}}" class="btn btn-info" role="button">View</a> / <a href="edit" class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
+                <td>{{x.quantity}}</td>
+                <td><a href="view?&id={{x.id}}&com={{x.name}}&col={{x.description}}&cost={{x.cost}}&qty={{x.quantity}}" class="btn btn-info" role="button">View</a> / <a href="edit" class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
              </tr>
           </tbody>
        </table>
@@ -53,10 +57,12 @@
              <table  class="table table-bordered" style="margin-top:10%">
           <tbody>
              <tr ng-repeat="y in x | filter:str">
-                <td>{{y.company}}</td>
-                <td>{{y.colour}}</td>
+                <td>{{y.id}}</td>
+                <td>{{y.name}}</td>
+                <td>{{y.description}}</td>
                 <td>{{y.cost}}</td>
-                <td><a href="view?&com={{y.company}}&col={{y.colour}}&cost={{y.cost}}" class="btn btn-info" role="button">View</a> / <a href="edit"class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
+                <td>{{y.quantity}}
+                <td><a href="view?&id={{y.id}}&com={{y.name}}&col={{y.description}}&cost={{y.cost}}&qty={{y.quantity}}" class="btn btn-info" role="button">View</a> / <a href="edit"class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
              </tr>
           </tbody>
        </table></td></tr></table>

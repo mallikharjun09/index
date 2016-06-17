@@ -9,9 +9,11 @@
   <script src="<c:url value="resources/jquery/jquery.min.js"/>"></script>
   <script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
 </head>
+
     <body>
  <div class="container">
    <jsp:include page="Header.jsp"/>
+   
    <div id="mycarousel" class="carousel slide" data-ride="carousel" >
    <ol class="carousel-indicators">
      <li data-targer="#mycarousel" data-slide-to="0" class="active"></li>
@@ -60,6 +62,7 @@
 </div>
 <footer>
 <hr/>
+<a href="reg">Register Sample</a>
 <center>&copy;Copyrights Belongs to MySite.com.Pvt., Ltd..</center>
 </footer>
 </body>

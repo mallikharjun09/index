@@ -2,8 +2,9 @@ package com.samples;
 
 import java.util.ArrayList;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,27 +15,9 @@ import com.google.gson.Gson;
 @Controller
 public class MyController {
 
-	ArrayList<Chair> chlist=new ArrayList<Chair>();
-	ArrayList<Table> tlist=new ArrayList<Table>();
-	ArrayList<Bed> blist=new ArrayList<Bed>();
-	ArrayList list=new ArrayList();
+	@Autowired
+	StudentService stservice;
 	public MyController(){
-		
-		chlist.add(new Chair("Rosewood","Red",470.00));
-		chlist.add(new Chair("BlackStone","White",420.00));
-		chlist.add(new Chair("Starply","Krimpson",750.00));
-		
-		tlist.add(new Table("Nilkamal","Red",770.00));
-		tlist.add(new Table("Crompton","white",720.00));
-		
-		blist.add(new Bed("Sleepwell","Maroon",1470));
-		blist.add(new Bed("Cozilon","White",1420.00));
-		blist.add(new Bed("SmoothSleep","Yellow",1750.00));
-		
-		list.add(chlist);
-		list.add(tlist);
-		list.add(blist);
-		
 	}
 	@RequestMapping("/")
 	public ModelAndView show(){
@@ -51,42 +34,43 @@ public class MyController {
 		ModelAndView model=new ModelAndView("Login");
 		return model;
 	}
-	@RequestMapping("/register")
-	public ModelAndView showRegister(){
-		ModelAndView model=new ModelAndView("Register");
-		return model;
-	}
+	
 	@RequestMapping(value="/all",method=RequestMethod.GET,produces="application/json")
 	public @ResponseBody String showAll(){
 		
-		String json=new Gson().toJson(list);
+		//String json=new Gson().toJson(list);
 		
 	    
-		return json;
+		//return json;
+		return "Under Construction";
 	}
 	@RequestMapping(value="/chair",method=RequestMethod.GET,produces="application/json")
 	public @ResponseBody String showChair(){
 		
-		String json=new Gson().toJson(chlist);
+		//String json=new Gson().toJson(chlist);
 		
 	    
-		return json;
+		//return json;
+		return "Under Construction";
 	}
+	
 	@RequestMapping(value="/table",method=RequestMethod.GET,produces="application/json")
 	public @ResponseBody String showTable(){
 		
-		String json=new Gson().toJson(tlist);
+		//String json=new Gson().toJson(tlist);
 		
 	    
-		return json;
+		//return json;
+		return "Under Construction";
 	}
 	@RequestMapping(value="/bed",method=RequestMethod.GET,produces="application/json")
 	public @ResponseBody String showSample(){
 		
-		String json=new Gson().toJson(blist);
+		//String json=new Gson().toJson(blist);
 		
 	    
-		return json;
+		//return json;
+		return "Under Construction";
 	}
 	@RequestMapping("/pro")
 	public ModelAndView showProducts(){
@@ -112,5 +96,30 @@ public class MyController {
 	public ModelAndView showDelete(){
 		ModelAndView model=new ModelAndView("Delete");
 		return model;
+	}
+	@RequestMapping("/header")
+	public ModelAndView showHeader(){
+		ModelAndView model=new ModelAndView("Header");
+		return model;
+	}
+	
+	@RequestMapping("/register")
+	public String register(){
+		
+		return "User Successfully Registered";
+	}
+	@RequestMapping("/reg")
+	public ModelAndView showSampleReg(){
+		return new ModelAndView("StudentForm");
+	}
+	@RequestMapping(value="/reg", method=RequestMethod.POST)
+	public String acceptSampleReg(@ModelAttribute("user")Student student){
+		stservice.save(student);
+		return "User Successfully Registered";
+		//return new ModelAndView("home");
+	}
+	@ModelAttribute("user")
+	public Student addStudent(){
+		return new Student();
 	}
 }
