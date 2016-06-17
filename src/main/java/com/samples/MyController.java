@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +19,8 @@ public class MyController {
 
 	@Autowired
 	StudentService stservice;
+	@Autowired
+	ChairService chservice;
 	public MyController(){
 	}
 	@RequestMapping("/")
@@ -45,13 +49,14 @@ public class MyController {
 		return "Under Construction";
 	}
 	@RequestMapping(value="/chair",method=RequestMethod.GET,produces="application/json")
-	public @ResponseBody String showChair(){
-		
-		//String json=new Gson().toJson(chlist);
+	public @ResponseBody String showChair(Model model){
+		model.addAttribute("chair",new Chair());
+		model.addAttribute("chlist",this.chservice.getAllChairs());
+		String json=new Gson().toJson(chservice.getAllChairs());
 		
 	    
-		//return json;
-		return "Under Construction";
+		return json;
+		
 	}
 	
 	@RequestMapping(value="/table",method=RequestMethod.GET,produces="application/json")
@@ -82,9 +87,9 @@ public class MyController {
 		ModelAndView model=new ModelAndView("viewProduct");
 		return model;
 	}
-	@RequestMapping("/addProduct")
+	@RequestMapping("/addChair")
 	public ModelAndView addProduct(){
-		ModelAndView model=new ModelAndView("addProduct");
+		ModelAndView model=new ModelAndView("addChair");
 		return model;
 	}
 	@RequestMapping("/edit")
@@ -122,4 +127,25 @@ public class MyController {
 	public Student addStudent(){
 		return new Student();
 	}
+	@RequestMapping(value="/addChair",method=RequestMethod.POST)
+	public ModelAndView acceptChair(@ModelAttribute("chr")Chair chair){
+		if(chair.getId()==0){
+			this.chservice.saveChair(chair);
+		}
+		else{
+			this.chservice.editChair(chair);
+		}
+		return new ModelAndView("home");
+	}
+	@RequestMapping(value="/edit/{id}",method=RequestMethod.POST)
+	public String editChair(@PathVariable("id") int id,Model model){
+		model.addAttribute("chr",this.chservice.getChairById(id));
+		model.addAttribute("chlist",this.chservice.getAllChairs());
+		return "chr";
+	}
+	@ModelAttribute("chr")
+	public Chair addChair(){
+		return new Chair();
+	}
+
 }

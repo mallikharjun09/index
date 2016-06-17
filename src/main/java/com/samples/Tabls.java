@@ -60,10 +60,5 @@ public class Tabls {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-	public Tabls(String name,String description,int quantity,double cost){
-		this.name=name;
-		this.description=description;
-		this.quantity=quantity;
-		this.cost=cost;
-	}
+	
 }

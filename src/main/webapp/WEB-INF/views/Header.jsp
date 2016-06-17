@@ -10,7 +10,7 @@
         <li><a href="pro?data=all">View All</a></li>
         <li><a href="login">Login</a></li>
         <li><a href="register">Register</a>
-        <li><a href="addProduct">Add Product</a>
+        <li><a href="addChair">Add Chair</a>
      </ul>
      </div>
    </nav>

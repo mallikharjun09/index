@@ -13,6 +13,7 @@
    <jsp:include page="Header.jsp"/>
    <center>
    <img src="<x:url value="/resources/images/construction.jpg"/>" width="80%" height="80%"/>
+   
    </center>
 </div>
 </body>

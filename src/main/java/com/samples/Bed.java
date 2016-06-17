@@ -60,10 +60,5 @@ public class Bed {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-	public Bed(String name,String description,int quantity,double cost){
-		this.name=name;
-		this.description=description;
-		this.quantity=quantity;
-		this.cost=cost;
-	}
+	
 }

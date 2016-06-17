@@ -38,12 +38,12 @@
           </thead>
           <tbody>
              <tr ng-repeat="x in data">
-                <td>{{x.id}}</td>
+                
                 <td>{{x.name}}</td>
                 <td>{{x.description}}</td>
                 <td>{{x.cost}}</td>
                 <td>{{x.quantity}}</td>
-                <td><a href="view?&id={{x.id}}&com={{x.name}}&col={{x.description}}&cost={{x.cost}}&qty={{x.quantity}}" class="btn btn-info" role="button">View</a> / <a href="edit" class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
+                <td><a href="view?&id={{x.id}}&com={{x.name}}&col={{x.description}}&cost={{x.cost}}&qty={{x.quantity}}" class="btn btn-info" role="button">View</a> / <a href="edit?id={{x.id}}" class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
              </tr>
           </tbody>
        </table>
@@ -57,12 +57,12 @@
              <table  class="table table-bordered" style="margin-top:10%">
           <tbody>
              <tr ng-repeat="y in x | filter:str">
-                <td>{{y.id}}</td>
+                
                 <td>{{y.name}}</td>
                 <td>{{y.description}}</td>
                 <td>{{y.cost}}</td>
                 <td>{{y.quantity}}
-                <td><a href="view?&id={{y.id}}&com={{y.name}}&col={{y.description}}&cost={{y.cost}}&qty={{y.quantity}}" class="btn btn-info" role="button">View</a> / <a href="edit"class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
+                <td><a href="view?&id={{y.id}}&com={{y.name}}&col={{y.description}}&cost={{y.cost}}&qty={{y.quantity}}" class="btn btn-info" role="button">View</a> / <a href="edit?id={{y.id}}"class="btn btn-info" role="button">Edit</a> / <a href="delete" class="btn btn-info" role="button">Delete</a></td>
              </tr>
           </tbody>
        </table></td></tr></table>
